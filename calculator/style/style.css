@@ -1,0 +1,18 @@
+.screen {
+    margin: 5px auto;
+    background-color:#CFD8DC;
+    height: 200px;
+}
+
+.input-section{
+    display:inline;
+}
+.numbers {
+    width: 80%;
+    display: inline-block;
+}
+
+.operations {
+    width: 20%;
+    display: inline-block;
+}
