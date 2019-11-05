@@ -2,7 +2,7 @@ module Enumerable
     def my_each
         counter = 0
         while counter<self.size
-            yield(self[counter])
+             yield(self[counter])if block_given?
             counter+=1
         end
     end
@@ -10,7 +10,7 @@ module Enumerable
     def my_each_with_index
         counter = 0 
         while counter <self.size
-            yield(self[counter],counter)
+            yield(self[counter],counter) if block_given?
             counter+=1
         end
     end
@@ -18,6 +18,7 @@ module Enumerable
     def my_select
         result = []
         counter = 0
+        return self unless block_given?
         while counter<self.size
             result.push(self[counter]) if yield(self[counter])
             counter +=1
@@ -25,34 +26,44 @@ module Enumerable
         result
     end
 
-    def my_all?
-        result = true
+    def my_all? value=0
         counter = 0
         while counter<self.length
-            result = false unless yield(self[counter])
+            if block_given?
+                return false unless yield(self[counter])
+            else
+                return false if self[counter] != value
+            end
             counter+=1
         end
-        result
+        true
     end
 
-    def my_any?
+    def my_any? value =0
         counter = 0
         result = false
         while counter<self.length
-            result = true if yield(self[counter])
+            if block_given?
+                return true if yield(self[counter])
+            else
+                return true if self[counter] == value
+            end
             counter+=1
         end
-        result
+        false
     end
 
-    def my_none?
+    def my_none? value =0
         counter = 0
-        result = true
         while counter<self.length
-            result = false if yield(self[counter])
+            if block_given?
+                return false if yield(self[counter])
+            else
+                return false if self[counter] == value
+            end
             counter+=1
         end
-        result
+        true
     end
 
     def my_count
