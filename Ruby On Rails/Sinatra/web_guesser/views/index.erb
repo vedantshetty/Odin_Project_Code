@@ -1,8 +1,17 @@
 <html>
   <head></head>
   <body>
+    <h1> Guess a number between 1-100</h1>
+    <form>
+      <input type ='text' name ='guess'/>
+      <input type = 'submit' value ='Guess!'/>
+    </form>
+    <p><%= message %> 
+    </p>
+    <% if message =='You got it right!'%>
     <p>
       The SECRET NUMBER is <%= number %>
     </p>
+    <% end %>
   </body>
 </html>
