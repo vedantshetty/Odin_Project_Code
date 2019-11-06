@@ -67,7 +67,8 @@ describe TicTacToe do
     it '#left_diagonal_complete' do
     end
 
-    it '#right_diagonal_complete'
+    it '#right_diagonal_complete' do
+    end
   end
 
 end

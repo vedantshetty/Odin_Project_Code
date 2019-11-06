@@ -16,7 +16,7 @@ get '/numberGuesser' do
   end
   cheat = params['cheat'] == 'true'
   erb :index, locals: { number: @@number, message: message, cheat_mode: cheat, 
-                        turns:@@guesses }
+                        turns: @@guesses }
 end
 
 def reset
