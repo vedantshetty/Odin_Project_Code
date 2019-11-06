@@ -1,7 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
-
-
+require 'sinatra/reloader' if development?
 get '/' do
   encrypted = caesar(params['code'], params['shift'].to_i)
   erb :index, locals: { encrypted: encrypted }
