@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mastermind Game</title>
+    <link href= "<%=url('/styles.css') %>" type = 'text/css' rel = 'stylesheet'/>
+  </head>
+  <body class ='play'>
+    <div class ='game-container'>
+    <h1>Turn #<%= @@turn%></h1>
+
+
+    <p> Guess The Code:</p>
+    <form>
+      <select name ='color1'>
+        <option id='Red'>Red</option>
+        <option id='Green'>Green</option>
+        <option id='Blue'>Blue</option>
+        <option id='Yellow'>Yellow</option>
+        <option id='Black'>Black</option>
+        <option id='White'>White</option>
+      </select>
+
+      <select name ='color2'>
+        <option id='Red'>Red</option>
+        <option id='Green'>Green</option>
+        <option id='Blue'>Blue</option>
+        <option id='Yellow'>Yellow</option>
+        <option id='Black'>Black</option>
+        <option id='White'>White</option>
+      </select>
+
+      <select name ='color3'>
+        <option id='Red'>Red</option>
+        <option id='Green'>Green</option>
+        <option id='Blue'>Blue</option>
+        <option id='Yellow'>Yellow</option>
+        <option id='Black'>Black</option>
+        <option id='White'>White</option>
+      </select>
+
+      <select name ='color4'>
+        <option id='Red'>Red</option>
+        <option id='Green'>Green</option>
+        <option id='Blue'>Blue</option>
+        <option id='Yellow'>Yellow</option>
+        <option id='Black'>Black</option>
+        <option id='White'>White</option>
+      </select>
+
+      <input type='submit' value='Guess'/>
+    </form>
+    </div>
+  </body>
+</html>
