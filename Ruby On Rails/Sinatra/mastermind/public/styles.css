@@ -68,18 +68,33 @@
 }
 
 
-#Red{ background: red;}
+.play .Red{ background: red;}
 
-#Green{ background: green;}
+.play .Green{ background: green;}
 
-#Blue{ background: blue;
+.play .Blue{ background: blue;
   color: white;}
 
-#Yellow{ background: yellow;}
+.play .Yellow{ background: yellow;}
 
-#Black{ 
+.play .Black{ 
   background: black;
   color: white;
 }
 
-#White{ background: white;}
+.White{ background: white;}
+
+.play .colorblock{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+}
+
+.play .past-turns h2 {
+  display: inline;
+}
+
+.play .matches {
+  display: inline;
+}
