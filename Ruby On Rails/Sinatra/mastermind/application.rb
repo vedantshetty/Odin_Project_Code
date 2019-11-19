@@ -1,11 +1,7 @@
 require 'sinatra'
-if development? require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require_relative 'lib/Mastermind'
 enable :sessions
-helpers do
-  def lose
-  end
-end
 
 get '/play' do
 
