@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
+if development? require 'sinatra/reloader'
 require_relative 'lib/Mastermind'
 enable :sessions
 helpers do
