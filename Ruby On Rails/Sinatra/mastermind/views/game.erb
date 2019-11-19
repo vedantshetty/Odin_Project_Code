@@ -5,68 +5,50 @@
     <link href= "<%=url('/styles.css') %>" type = 'text/css' rel = 'stylesheet'/>
   </head>
   <body class ='play'>
+  <% color_list = ['Red','Green','Blue','Yellow','Black','White']%>
     <div class ='game-container'>
+    <% if turn == 13 && matches[-1][0] !=4 %>
+      <p class ='lose-message'> Sorry you lose</p>
+      <p>The real code was </p>
+      <% answer.each do |color| %>
+        <div class = 'colorblock <%= color %>'></div>
+      <% end %>
+    <%end%>
     <h1>Turn #<%= turn%></h1>
     <div class='past-turns'>
-    <% puts codes%>
-    <%codes.each_with_index do |turn,index|%>
-      <h2>Turn <%= index+1 %>:</h2>
-      <% turn.each do |color|%>
-          <div class='colorblock <%=color%>'></div>
-      <% end %>
-      <div class ='matches'>
-        <p>Exact Matches: <%=matches[index][0] %>, Color Matches: <%=matches[index][1]%> </p>
+      <%codes.each_with_index do |turn,index|%>
+      <div class ='turn'>
+        <h2>Turn <%= index+1 %>:</h2>
+
+        <% turn.each do |color|%>
+            <div class='colorblock <%=color%>'></div>
+        <% end %>
+
+        <div class ='matches'>
+          <p>Exact Matches: <strong style = "color: teal"><%=matches[index][0] %></strong>, Color Matches: <strong style = "color: tomato;"><%=matches[index][1]%></strong> </p>
+        </div>
+        <br />
       </div>
-      <br />
-    <% end %>
+      <% end %>
     </div>
+
     <% if !matches.empty? && matches[-1][0] == 4%>
       <p class='win'>Congrats! You Win</p>
-      <form>
-        <input type ='submit' value ='Try Again!'>
-      </form>
-    <%else %>
+    <%elsif turn<13%>
       <p> Guess The Code:</p>
-      <form>
-        <select name ='color1'>
-          <option class='Red'>Red</option>
-          <option class ='Green'>Green</option>
-          <option class ='Blue'>Blue</option>
-          <option class ='Yellow'>Yellow</option>
-          <option class ='Black'>Black</option>
-          <option class ='White'>White</option>
-        </select>
-
-        <select name ='color2'>
-          <option class='Red'>Red</option>
-          <option class ='Green'>Green</option>
-          <option class ='Blue'>Blue</option>
-          <option class ='Yellow'>Yellow</option>
-          <option class ='Black'>Black</option>
-          <option class ='White'>White</option>
-        </select>
-
-        <select name ='color3'>
-          <option class='Red'>Red</option>
-          <option class='Green'>Green</option>
-          <option class='Blue'>Blue</option>
-          <option class='Yellow'>Yellow</option>
-          <option class='Black'>Black</option>
-          <option class='White'>White</option>
-        </select>
-
-        <select name ='color4'>
-          <option class='Red'>Red</option>
-          <option class ='Green'>Green</option>
-          <option class ='Blue'>Blue</option>
-          <option class ='Yellow'>Yellow</option>
-          <option class ='Black'>Black</option>
-          <option class ='White'>White</option>
-        </select>
-
+      <form id= 'codepicker'>
+        <% 4.times do |counter|%>
+            <select class='options' name='color<%=counter+1 %>' required>
+              <option  hidden>Red</option>
+            <% color_list.each do |color| %>
+              <option ><%=color%></option>
+            <% end %>
+          </select>
+        <%end%>
         <input type='submit' value='Guess'/>
       </form>
     <% end %>
+    <a href ='/' class = 'btn'>Start a new game</a>
     </div>
   </body>
 </html>

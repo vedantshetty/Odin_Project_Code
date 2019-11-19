@@ -1,5 +1,6 @@
 # Guess opponents secret code within a certain number of turns.
 class Mastermind
+  attr_reader :code, :number
   def initialize(number = 4, mode = 'codebreaker')
     @code = []
     @colors = ['Red','Green','Blue','Yellow','Black','White']
@@ -51,4 +52,3 @@ class Mastermind
     [exact_match, color_match]
   end
 end
-

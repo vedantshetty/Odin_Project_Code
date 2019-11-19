@@ -19,8 +19,11 @@ get '/play' do
     session[:matches] = []
     session[:game] = Mastermind.new
   end
-  #Write Code for running out of turn
-  erb :game, :locals =>{:turn => session[:turns], :codes => session[:colors], :matches => session[:matches]}
+  if (session[:turns] >= 13 && session[:matches][-1][0] != session[:game].number)
+    erb :game, :locals =>{:turn => session[:turns],:codes => session[:colors], :matches => session[:matches], :answer => session[:game].code}
+  else
+    erb :game, :locals =>{:turn => session[:turns], :codes => session[:colors], :matches => session[:matches]}
+  end
 end
 
 
