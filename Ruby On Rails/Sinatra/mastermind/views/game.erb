@@ -39,7 +39,7 @@
       <form id= 'codepicker'>
         <% 4.times do |counter|%>
             <select class='options' name='color<%=counter+1 %>' required>
-              <option  hidden>Red</option>
+              <option selected disabled  hidden>Pick a color</option>
             <% color_list.each do |color| %>
               <option ><%=color%></option>
             <% end %>
