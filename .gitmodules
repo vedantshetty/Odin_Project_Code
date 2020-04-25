@@ -1,0 +1,6 @@
+[submodule "Ruby_On_Rails/Reddit_On_Rails"]
+	path = Ruby_On_Rails/Reddit_On_Rails
+	url = https://github.com/vedantshetty/Reddit_On_Rails.git
+[submodule "Ruby_On_Rails/Sinatra/Caesar Cipher"]
+	path = Ruby_On_Rails/Sinatra/Caesar Cipher
+	url = https://github.com/vedantshetty/Caesar-Cipher.git

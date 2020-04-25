@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     else
       puts @user.errors.messages
-      render :new
     end
   end
 

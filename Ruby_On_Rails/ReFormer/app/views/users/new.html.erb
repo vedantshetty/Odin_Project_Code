@@ -31,7 +31,7 @@
 <% end %>
 <% end %>
 
-<%= form_with model: @user do |f| %>
+<%= form_with model: @user, local: true do |f| %>
   <%= f.label 'username', 'Username:' %>
   <%= f.text_field :username, :value => 'Enter Your Username' %>
   <%= f.label 'email', 'Email:' %>
