@@ -14,7 +14,9 @@ body {
 
 #board>tbody>tr>td {
     width: 15vh;
-    height: 15vh;    
+    height: 15vh;
+    font-size: 7vh;
+    text-align: center;  
 
 }
 
