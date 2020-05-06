@@ -4,7 +4,7 @@ body {
     color: #eaeaea
 }
 
-.board {
+#board {
     left: calc(50% - 22vh);
     position: absolute;
     top: 30vh; 
@@ -12,7 +12,7 @@ body {
     height: 45vh;   
 }
 
-.board>tbody>tr>td {
+#board>tbody>tr>td {
     width: 15vh;
     height: 15vh;    
 
@@ -69,4 +69,17 @@ p {
 .score {
     float: right;
     padding: 0 1em;
+}
+
+
+/* Redo Icon */
+
+.redo>img {
+    position: fixed;
+    bottom: 10vh;
+    left: 48.5vw;
+    width: 3vw;
+    height: 3vw;
+    max-width: 40px;
+    max-height: 40px;
 }
