@@ -18,9 +18,10 @@ const playerFactory = (name) => {
     const win = () => {
         score++
         alert(`${playerName} wins`)
-        // update score on HTML page; match class with playerName
+        let HTMLScore = document.querySelector(`.${playerName} .score`);
+        HTMLScore.innerHTML = score;
     };
-    return { win }
+    return {win}
 };
 
 
