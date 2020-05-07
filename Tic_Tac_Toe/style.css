@@ -32,11 +32,11 @@ body {
     background-color: #393e46;
 }
 
-.player1.active {
+.X.active {
     background-color:#dfb706;
 }
 
-.player2.active{
+.O.active{
     background-color: #dd2654;
 }
 
