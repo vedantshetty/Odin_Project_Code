@@ -27,17 +27,20 @@ const playerFactory = (name) => {
 const game = (playerOne, playerTwo) => {
     let board;
     let turn;
+
+
     const start = () => {
         board = Gameboard();
-        setTurnIndicator(playerOne);
+        setTurnIndicator('X');
+        removeTurnIndicator('O');
         turn = 0;
         play();
     }
 
 
-    const setTurnIndicator(player) => {
+    const setTurnIndicator= player => document.getElementsByClassName(player)[0].classList.add('active');
 
-    }
+    const removeTurnIndicator = player => document.getElementsByClassName(player)[0].classList.remove('active');
 
     const play = () => {
         const SYMBOLS = ['X', 'O'];
@@ -47,11 +50,12 @@ const game = (playerOne, playerTwo) => {
             for (let i = 0; i < HTMLtable.rows.length; i++)
                 for (let j = 0; j < HTMLtable.rows[i].cells.length; j++)
                     HTMLtable.rows[i].cells[j].onclick = function () {
-                        this.innerHTML = SYMBOLS[turn];
-                        board.state[i][j] = SYMBOLS[turn];
-                        turn ^= 1;
-                        if (isGameOver()) start();
-                        // Turn Indicator Update
+                        this.innerHTML = SYMBOLS[turn%2];
+                        board.state[i][j] = SYMBOLS[turn%2];
+                        turn++;
+                        if (isGameOver(turn)) start();
+                        removeTurnIndicator(SYMBOLS[(turn+1)%2]);
+                        setTurnIndicator(SYMBOLS[turn%2]);
                     }
     }
 
@@ -95,18 +99,20 @@ const game = (playerOne, playerTwo) => {
         return false;
     }
 
-    const isGameOver = () => {
+    const isGameOver = (turn) => {
         let result = win();
-        if (result === false) return false;
-        else if (result === 'X') playerOne.win();
+        if (result === 'X') playerOne.win();
         else if (result === 'O') playerTwo.win();
-        else alert('tie');
+        else if(turn === 9) alert('Tie');
+        else  return false;
         return true;
     }
 
     return { start }
 }
 
+
+let reset = document.getElementById('reset');
 
 let x = playerFactory('X');
 let o = playerFactory('O');

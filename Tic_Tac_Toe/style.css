@@ -30,6 +30,11 @@ body {
     margin: 0.75em;
     border-radius: 10px;
     background-color: #393e46;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+
 }
 
 .X.active {
