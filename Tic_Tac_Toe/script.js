@@ -27,7 +27,10 @@ const playerFactory = (name) => {
 const game = (playerOne, playerTwo) => {
     let board;
     let turn;
-
+    document.querySelector('.reset').onclick = function(){
+    this.classList.toggle('loading');
+    start();
+    };
 
     const start = () => {
         board = Gameboard();
@@ -110,9 +113,6 @@ const game = (playerOne, playerTwo) => {
 
     return { start }
 }
-
-
-let reset = document.getElementById('reset');
 
 let x = playerFactory('X');
 let o = playerFactory('O');

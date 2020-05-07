@@ -81,7 +81,7 @@ p {
 
 /* Redo Icon */
 
-.redo>img {
+.reset>img {
     position: fixed;
     bottom: 10vh;
     left: 48.5vw;
@@ -89,4 +89,15 @@ p {
     height: 3vw;
     max-width: 40px;
     max-height: 40px;
+    transition: all 1s linear;
+    -o-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
 }
+
+
+.loading>img {
+    transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+}
+
